@@ -5,7 +5,7 @@
 <!-- TODO: Make a diagram -->
 <!-- TODO: Make a table in the end -->
 
-In the long of my life, I notice that my colegues struggles to make test in front end. Sometimes is about not familiar with tests, sometimes is about the framework, and sometimes is to know what I need to cover. Some books even describe as hard to do, saying that you probably don't want to do that.
+In the long of my coding experience, I notice that my colegues struggles to make test in front end. Sometimes is about not familiar with tests, sometimes is about the framework, and sometimes is to know what I need to cover. Some books even describe as hard to do, saying that you probably don't want to do that.
 But we are in 2021, and we have a lot of tools to make good test of an UI in front end. So this article, hopefully, will cover some common types of testing, some overall view of this types and also some example of tools.
 
 ## Types
@@ -32,11 +32,16 @@ The UI is made by pixels. We also want to make sure that the UI is the same as t
 Tools: storybook with chromium, storybook with loki, cypress, playwright)
 
 ### Application Level 
-In the application level we can have tests that are related to the whole application. We can use the term integration test to describe these tests by building the entire application, serve and try to execute some main happy scenarios mocking external services. You can do that easily with Jest, Cypress, Playwright, etc.
+In the application level we can have tests that are related to the whole application. 
+
+#### Functional Test
+Classic functional testing, you can use to test functions, helpers, data layer and so on. The idea is to the test 
+
+#### Integration Test
+We can use the term integration test to describe these tests by building the entire application, serve and try to execute some main happy scenarios mocking external services. You can do that easily with Jest, Cypress, Playwright, etc.
 
 ### User Perspective Level
 This is a more high level scenario test, you can see this as feature test or end to end test by testing our application in by using the application in a real scenario. You can do it with the same tools from the application level. 
-
 
 Testing that we are going to use in the components code. Ideally our components is decoupled from the rest of the code. So we can test it independently, to work with whatever input. 
 
@@ -59,3 +64,11 @@ In the application level we can have tests that are related to the whole applica
 
 ### User Perspective Level
 This is a more high level scenario test, you can see this as feature test or end to end test by testing our application in by using the application in a real scenario. You can do it with the same tools from the application level.
+
+References:
+- Pyramid of test from Martin Fowler
+- Solitary tests
+- Clean Code
+- Google about separation of code
+- Atomic Design
+- BDD 
