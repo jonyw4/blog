@@ -1,0 +1,8 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "repository": "git@github.com:jonyw4/blog.git",
+  "author": "Jonathan Célio <jonathan.clio@hotmail.com>",
+  "license": "CC-BY-NC-SA-4.0",
+  "private": false
+}
