@@ -6,10 +6,11 @@
   "license": "CC-BY-NC-SA-4.0",
   "private": false,
   "scripts": {
-    "lint": "eslint posts/*"
+    "markdown:lint:fix": "markdownlint './posts/*.md' --fix",
+    "markdown:lint:check": "markdownlint './posts/*.md' --fix",
+    "markdown:spell:check": "vale --glob='*.{md}' posts"
   },
   "devDependencies": {
-    "eslint": "^8.1.0",
-    "eslint-plugin-md": "^1.0.19"
+    "markdownlint-cli": "0.29.0"
   }
 }
