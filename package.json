@@ -4,13 +4,15 @@
   "repository": "git@github.com:jonyw4/blog.git",
   "author": "Jonathan Célio <jonathan.clio@hotmail.com>",
   "license": "CC-BY-NC-SA-4.0",
-  "private": false,
+  "private": true,
+  "workspaces": [
+    "posts"
+  ],
   "scripts": {
-    "markdown:lint:check": "markdownlint './posts/*.md'",
-    "markdown:lint:fix": "npm run markdown:lint:check -- --fix",
-    "markdown:spell:check": "vale --glob='*.{md}' posts"
+    "lint": "lerna run lint --parallel --no-bail --stream"
   },
   "devDependencies": {
-    "markdownlint-cli": "0.29.0"
+    "markdownlint-cli": "0.29.0",
+    "lerna": "4.0.0"
   }
 }
