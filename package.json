@@ -6,8 +6,8 @@
   "license": "CC-BY-NC-SA-4.0",
   "private": false,
   "scripts": {
-    "markdown:lint:fix": "markdownlint './posts/*.md' --fix",
-    "markdown:lint:check": "markdownlint './posts/*.md' --fix",
+    "markdown:lint:check": "markdownlint './posts/*.md'",
+    "markdown:lint:fix": "npm run markdown:lint:check -- --fix",
     "markdown:spell:check": "vale --glob='*.{md}' posts"
   },
   "devDependencies": {
