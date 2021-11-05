@@ -4,6 +4,8 @@ message: "Did you really mean '%s'?"
 level: error
 code: false
 ignore:
+  - openly/tech-terms/names.txt
+  - openly/tech-terms/frontend.txt
   - openly/tech-terms/security.txt
   - openly/tech-terms/blockchain.txt
   - openly/tech-terms/devops.txt
