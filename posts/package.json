@@ -6,9 +6,13 @@
   "license": "CC-BY-NC-SA-4.0",
   "private": false,
   "scripts": {
-    "lint:markdown": "markdownlint './src/*.md'",
+    "spellcheck": "npm run spellcheck:en",
+    "spellcheck:en": "npm run spellcheck:en:fix -- --report",
+    "spellcheck:en:fix": "mdspell 'src/posts/en/**/*.md' --ignore-acronyms --en-us",
+    "lint:markdown": "markdownlint './src/**/*.md'",
     "lint:markdown:fix": "npm run lint -- --fix",
     "lint:spell": "vale --glob='*.{md}' src",
-    "lint": "npm run lint:markdown && npm run lint:spell"
+    "lint": "npm run lint:markdown && npm run lint:spell",
+    "postlint": "npm run spellcheck"
   }
 }
