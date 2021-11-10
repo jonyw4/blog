@@ -10,14 +10,23 @@
     "webapp"
   ],
   "scripts": {
-    "lint": "lerna run lint --parallel --no-bail --stream"
+    "lint": "lerna run lint --parallel --no-bail --stream",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "@types/react": "^17.0.34",
+    "babel-loader": "^8.2.3",
+    "eslint": "<8.0.0",
     "lerna": "4.0.0",
     "markdown-spellcheck": "1.3.1",
     "markdownlint-cli": "0.29.0",
-    "typescript": "4.4.4",
-    "@types/react": "^17.0.34",
-    "eslint": "<8.0.0"
-  }
+    "typescript": "4.4.4"
+  },
+  "dependencies": {}
 }
