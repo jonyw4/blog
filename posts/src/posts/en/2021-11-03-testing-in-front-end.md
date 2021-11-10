@@ -35,7 +35,7 @@ These boundaries in the pyramid is what I call **levels** in this article. Each 
 
 Keep in mind that what I am presenting here is based on **common problems** that we want to solve in developing UI (specially web applications). But **you don't need to have it all** in your codebase, you always need to identify what are them you need before putting into your project.
 
-That being said, let's start with the most common levels and types
+Let's start with the **most common levels and types**.
 
 ### Component level
 
