@@ -8,9 +8,10 @@ export class AppPlaywrightDriver extends PlaywrightDriver implements AppDriver {
   async goToHomePage(): Promise<void> {
     await this.getPage().goto(LANDING_PAGE_URL);
   }
+  async goToArticlePage(articleSlug: string): Promise<void> {
+    await this.getPage().goto(`${LANDING_PAGE_URL}/articles/${articleSlug}`);
+  }
   async getTitle(): Promise<string> {
-    return await this.getPage().textContent(
-      "[data-test=title]"
-    );
+    return await this.getPage().textContent("[data-test=title]");
   }
 }
