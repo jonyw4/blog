@@ -12,7 +12,8 @@ In the long of my coding experience, I notice that some colleagues struggle to m
 In this article, I cover common types of testing, an overall view of these types and examples of tools that you can use to make it work.
 
 ## Disclaimer
-First things first. By reading this article, I expected that you know the basics of testing and have some experiences doing that. **If you don't know anything about testing, this article is not for you**. 
+
+First things first. By reading this article, I expected that you know the basics of testing and have some experiences doing that. **If you don't know anything about testing, this article is not for you**.
 
 That being said, Let's go!
 
@@ -30,7 +31,7 @@ What I going to present here is based on Martin Fowler Pyramid of Testing with s
 
 ![Pyramid of Testing Front End Adapted](../../images/pyramid-of-testing-front-end.png "Pyramid of Testing Front End Adapted")
 
-These boundaries in the pyramid is what I call **levels** in this article. Each level represent a different purpose of testing. These levels can have different **types** of tests. Define tests types can be fuzzy and difficult because sometimes we don't have a good separation in the code. 
+These boundaries in the pyramid is what I call **levels** in this article. Each level represent a different purpose of testing. These levels can have different **types** of tests. Define tests types can be fuzzy and difficult because sometimes we don't have a good separation in the code.
 
 Keep in mind that what I am presenting here is based on **common problems** that we want to solve in developing UI (specially web applications). But **you don't need to have it all** in your codebase, you always need to identify what are them you need before putting into your project.
 
