@@ -11,14 +11,14 @@ export class ArticleFileSystemRepository implements ArticleRepository {
     const filePath = path.join(ARTICLE_FILE_PATH, `${slug}.md`);
     const file = fs.readFileSync(filePath);
     const {
-      data: { title, date },
+      data: { title, createdAt, updatedAt },
       content,
     } = frontMatterParser(file);
 
     return {
       title,
-      createdAt: String(date),
-      updatedAt: String(date),
+      createdAt, 
+      updatedAt,
       slug,
       content,
     };
