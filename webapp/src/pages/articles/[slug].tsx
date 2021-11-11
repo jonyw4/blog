@@ -1,32 +1,47 @@
 import { ArticlePage } from "../../components/templates/ArticlePage";
+import { ArticleRepository } from '../../data';
+import { ArticleFileSystemRepository } from '../../infra'
+import { GetStaticProps, GetStaticPaths } from "next";
 
-export default function Article ({ content, title, date }) {
+let articleRepository: ArticleRepository = new ArticleFileSystemRepository();
+
+export interface ArticleProps {
+  content: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export default function Article({ content, title, createdAt, updatedAt }: ArticleProps) {
   return (
-    <ArticlePage title={title} date={date}>
+    <ArticlePage title={title} createdAt={createdAt} updatedAt={updatedAt}>
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </ArticlePage>
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) => {
+  const slug = params?.slug as string;
+  const {
+    title,
+    createdAt,
+    content,
+    updatedAt,
+  } = await articleRepository.findBySlug(slug);
   return {
     props: {
-      title: "Testing in Front End",
-      date: "2020-01-01",
-      content: "In progress"
+      title,
+      createdAt,
+      updatedAt,
+      content,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const articleSlugs = await articleRepository.getAllSlugs();
   return {
-    paths: [
-      {
-        params: {
-          slug: "testing-in-front-end",
-        },
-      },
-    ],
+    paths: articleSlugs.map((slug) => ({ params: { slug } })),
     fallback: false,
   };
-}
+};
