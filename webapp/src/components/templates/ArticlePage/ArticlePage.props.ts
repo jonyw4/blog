@@ -1,5 +1,6 @@
 export interface ArticleProps {
   title: string;
   children: React.ReactNode;
-  date: string;
+  createdAt: string;
+  updatedAt: string;
 }

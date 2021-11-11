@@ -11,6 +11,7 @@ const storyFactory = new StoryFactory(ArticlePage);
 export const Default = storyFactory.create();
 Default.args = {
   title: "Article title",
-  date: "2020-01-01",
+  createdAt: "2020-01-01",
+  updatedAt: "2020-01-01",
   children: "Article content",
 };
