@@ -3,6 +3,7 @@ import { Markdown } from '../../components/atoms/Markdown'
 import { ArticleRepository } from '../../data';
 import { ArticleFileSystemRepository } from '../../infra'
 import { GetStaticProps, GetStaticPaths } from "next";
+import { formatDate } from "../../components/global/formatDate";
 
 export interface ArticleProps {
   content: string;
@@ -23,18 +24,12 @@ let articleRepository: ArticleRepository = new ArticleFileSystemRepository();
 
 export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) => {
   const slug = params?.slug as string;
-  const {
-    title,
-    createdAt,
-    content,
-    updatedAt,
-  } = await articleRepository.findBySlug(slug);
+  const article = await articleRepository.findBySlug(slug);
   return {
     props: {
-      title,
-      createdAt,
-      updatedAt,
-      content,
+      ...article, 
+      createdAt: formatDate(new Date(article.createdAt)), 
+      updatedAt: formatDate(new Date(article.updatedAt))
     },
   };
 };
