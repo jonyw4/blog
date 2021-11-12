@@ -4,8 +4,12 @@ export function ArticlePage({ title, children, createdAt, updatedAt }: ArticlePr
   return (
     <article>
       <h1 data-test="title">{title}</h1>
-      <div>{createdAt}</div>
-      <div>{updatedAt}</div>
+      <div>
+        <strong>Created At:</strong> {createdAt}
+      </div>
+      <div>
+        <strong>Updated At:</strong> {updatedAt}
+      </div>
       <hr />
 
       <main>{children}</main>
