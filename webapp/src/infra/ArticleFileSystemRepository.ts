@@ -4,19 +4,20 @@ import { ArticleRepository } from "../data";
 import { Article, ArticleMetadata } from "../domain";
 import frontMatterParser from "gray-matter";
 
-const ARTICLE_FILE_PATH = path.join(__dirname, "../../../../posts/src/posts/en");
+const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "../posts/src/posts/en");
 
 export class ArticleFileSystemRepository implements ArticleRepository {
   async findArticleBySlug(slug: string): Promise<Article> {
     const filePath = path.join(ARTICLE_FILE_PATH, `${slug}.md`);
     const file = fs.readFileSync(filePath);
     const {
-      data: { title, createdAt, updatedAt },
+      data: { title, createdAt, updatedAt, description },
       content,
     } = frontMatterParser(file);
 
     return {
       title,
+      description,
       createdAt,
       updatedAt,
       slug,
