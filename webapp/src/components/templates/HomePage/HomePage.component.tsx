@@ -1,13 +1,12 @@
-import { HomeProps } from "./HomePage.props";
+import { HomePageProps } from "./HomePage.props";
 import { Layout } from "../../organisms/Layout";
+import { ArticlePreview } from "../../organisms/ArticlePreview";
 
-export function HomePage({articles}: HomeProps) {
+export function HomePage({ articlesPreview }: HomePageProps) {
   return (
     <Layout>
-      {articles.map(article => (
-        <div key={article.slug}>
-          <h1>{article.title}</h1>
-        </div>
+      {articlesPreview.map((article) => (
+        <ArticlePreview key={article.slug} {...article} />
       ))}
     </Layout>
   );

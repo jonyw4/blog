@@ -1,7 +1,5 @@
-export interface HomeProps {
-  articles: Array<{
-    slug: string;
-    title: string;
-    createdAt: string;
-  }>;
+import { ArticlePreviewProps } from "../../organisms/ArticlePreview";
+
+export interface HomePageProps {
+  articlesPreview: ArticlePreviewProps[]
 }
