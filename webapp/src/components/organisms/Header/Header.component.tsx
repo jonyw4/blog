@@ -4,9 +4,11 @@ import Link from "next/link";
 export function Header(){
   return (
     <header>
-      <Link href="/">
-        <h5>Jonathan Celio</h5>
-      </Link>
+      <h5>
+        <Link href="/">
+          <a>Jonathan Celio</a>
+        </Link>
+      </h5>
     </header>
   );
 }
