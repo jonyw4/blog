@@ -1,5 +1,6 @@
 ---
 title: Testing in Front End
+description: Learn how to do better testing in your front end.
 createdAt: '2021-11-03T02:11:11.781Z'
 updatedAt: '2021-11-03T02:11:11.781Z'
 tags:
