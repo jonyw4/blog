@@ -24,7 +24,7 @@ let articleRepository: ArticleRepository = new ArticleFileSystemRepository();
 
 export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) => {
   const slug = params?.slug as string;
-  const article = await articleRepository.findBySlug(slug);
+  const article = await articleRepository.findArticleBySlug(slug);
   return {
     props: {
       ...article, 
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articleSlugs = await articleRepository.getAllSlugs();
+  const articleSlugs = await articleRepository.getAllArticleSlugs();
   return {
     paths: articleSlugs.map((slug) => ({ params: { slug } })),
     fallback: false,
