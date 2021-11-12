@@ -1,18 +1,18 @@
 import { ArticleProps } from "./ArticlePage.props";
+import { Header } from '../../organisms/Header'
+import { Footer } from "../../organisms/Footer";
 
 export function ArticlePage({ title, children, createdAt, updatedAt }: ArticleProps) {
   return (
-    <article>
-      <h1 data-test="title">{title}</h1>
-      <div>
-        <strong>Created At:</strong> {createdAt}
-      </div>
-      <div>
-        <strong>Updated At:</strong> {updatedAt}
-      </div>
-      <hr />
+    <>
+      <Header />
+      <article>
+        <h1 data-test="title">{title}</h1>
+        <small>{createdAt}</small>
 
-      <main>{children}</main>
-    </article>
+        <main>{children}</main>
+      </article>
+      <Footer />
+    </>
   );
 }
