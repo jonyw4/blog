@@ -1,3 +1,16 @@
+:root {
+  --color-black: #212121;
+  --color-gray: #424242;
+  --color-rose: #ffb7b7;
+}
+
+::selection {
+  background: var(--color-rose);
+}
+::-moz-selection {
+  background: var(--color-rose);
+}
+
 html {
   font-size: 16px;
 }
@@ -6,7 +19,18 @@ body {
   font-family: 'Athiti', sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  color: var(--color-gray);
+}
+
+img {
+  margin: 3em auto;
+  display: block;
+}
+
+p {
   line-height: 1.35;
+  margin-bottom: 1.25em;
 }
 
 strong {
@@ -16,21 +40,27 @@ strong {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Kameron', serif;
   font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-black);
 }
+
 h1 {
-  font-size: 3rem;
+  font-size: 3.625rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.563rem;
+  letter-spacing: 0.25px;
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.813rem;
 }
 
 h4 {
   font-size: 1.5rem;
+  letter-spacing: 0.15px;
 }
 
 /* h3, h4, h5 {
