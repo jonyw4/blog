@@ -1,6 +1,7 @@
-import { Article } from "../domain";
+import { Article, ArticleMetadata } from "../domain";
 
 export interface ArticleRepository {
-  findBySlug(slug: string): Promise<Article>;
-  getAllSlugs(): Promise<string[]>;
+  findArticleBySlug(slug: string): Promise<Article>;
+  getAllArticleMetadata(): Promise<ArticleMetadata[]>;
+  getAllArticleSlugs(): Promise<string[]>;
 }
