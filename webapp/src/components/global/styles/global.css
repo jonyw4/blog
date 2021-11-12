@@ -1,14 +1,16 @@
 :root {
   --color-black: #212121;
   --color-gray: #424242;
-  --color-rose: #ffb7b7;
+  --color-grape: #F3E5F5;
+  --color-purple: #AA00FF;
+  --color-purple-darker: #311B92;
 }
 
 ::selection {
-  background: var(--color-rose);
+  background: var(--color-grape);
 }
 ::-moz-selection {
-  background: var(--color-rose);
+  background: var(--color-grape);
 }
 
 html {
@@ -21,11 +23,26 @@ body {
   font-size: 1.25rem;
   letter-spacing: 0.5px;
   color: var(--color-gray);
+  padding: 0px 1rem;
+}
+
+a {
+  color: var(--color-purple);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--color-purple-darker);
 }
 
 img {
   margin: 3em auto;
   display: block;
+  width: auto;
+  max-width: 400px
 }
 
 p {
@@ -63,6 +80,9 @@ h4 {
   letter-spacing: 0.15px;
 }
 
+h5 {
+  margin: 0;
+}
 /* h3, h4, h5 {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
@@ -70,7 +90,26 @@ h4 {
   font-size: 1.5em;
 } */
 
+header {
+  text-align: center;
+  padding: 4rem 0 1rem 0;
+  text-transform: uppercase;
+}
+
+header a {
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+}
+
+header a, header a:visited, footer a, footer a:visited {
+  color: var(--color-gray);
+}
+
 article {
-  max-width: 750px;
+  max-width: 600px;
   margin: 0 auto;
 }
