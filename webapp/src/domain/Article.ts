@@ -1,7 +1,5 @@
-export interface Article {
-  slug: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
+import { ArticleMetadata } from './ArticleMetadata'
+
+export interface Article extends ArticleMetadata {
   content: string;
 }
