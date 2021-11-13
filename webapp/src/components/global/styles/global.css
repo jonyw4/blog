@@ -24,6 +24,8 @@ body {
   letter-spacing: 0.5px;
   color: var(--color-gray);
   padding: 0px 1rem;
+  max-width: 600px;
+  margin: 0 auto !important;
 }
 
 a {
@@ -36,13 +38,6 @@ a:hover {
 
 a:visited {
   color: var(--color-purple-darker);
-}
-
-img {
-  margin: 3em auto;
-  display: block;
-  width: auto;
-  max-width: 400px
 }
 
 p {
@@ -93,7 +88,6 @@ h5 {
 header {
   text-align: center;
   padding: 4rem 0 1rem 0;
-  text-transform: uppercase;
 }
 
 header a {
@@ -109,7 +103,9 @@ header a, header a:visited, footer a, footer a:visited {
   color: var(--color-gray);
 }
 
-article {
-  max-width: 600px;
-  margin: 0 auto;
+article img {
+  margin: 3em auto;
+  display: block;
+  width: auto;
+  max-width: 400px
 }
