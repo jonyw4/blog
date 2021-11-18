@@ -1,6 +1,20 @@
 import "normalize.css";
 import "../components/global/styles/global.css";
+import { LocaleContext } from "../components/global";
+import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const { pathname, asPath, query } = router;
+
+  const changeLocale = (nextLocale) => {
+    router.push({ pathname, query }, asPath, { locale: nextLocale });
+  };
+
+  return (
+    <LocaleContext.Provider value={{ locale: pageProps.locale, changeLocale }}>
+      <Component {...pageProps} />
+    </LocaleContext.Provider>
+  );
 }
