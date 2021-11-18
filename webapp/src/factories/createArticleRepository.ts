@@ -1,8 +1,6 @@
 import { ArticleRepository } from "../data";
 import { ArticleFileSystemRepository } from "../infra";
 
-export function createArticleRepository(): ArticleRepository {
-  return new ArticleFileSystemRepository();
+export function createArticleRepository(language: string): ArticleRepository {
+  return new ArticleFileSystemRepository(language);
 }
-
-export const articleRepository = createArticleRepository();

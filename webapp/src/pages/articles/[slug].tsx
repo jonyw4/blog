@@ -2,8 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { ArticlePage } from "../../components/templates/ArticlePage";
 import { Markdown } from "../../components/atoms/Markdown";
 import { formatDate } from "../../components/global/formatDate";
-import { ArticleRepository } from "../../data";
-import { ArticleFileSystemRepository } from "../../infra";
+import { createArticleRepository } from "../../factories";
 
 export interface ArticleProps {
   content: string;
@@ -25,11 +24,11 @@ export default function Article({
   );
 }
 
-let articleRepository: ArticleRepository = new ArticleFileSystemRepository();
-
 export const getStaticProps: GetStaticProps<ArticleProps> = async ({
   params,
+  locale
 }) => {
+  const articleRepository = createArticleRepository(locale);
   const slug = params?.slug as string;
   const article = await articleRepository.findArticleBySlug(slug);
   return {
@@ -42,6 +41,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const articleRepository = createArticleRepository("en");
   const articleSlugs = await articleRepository.getAllArticleSlugs();
   return {
     paths: articleSlugs.map((slug) => ({ params: { slug } })),
