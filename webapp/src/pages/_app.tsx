@@ -6,14 +6,14 @@ import type { AppProps } from "next/app";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const { pathname, asPath, query } = router;
+  const { pathname, asPath, query, locale } = router;
 
   const changeLocale = (nextLocale) => {
     router.push({ pathname, query }, asPath, { locale: nextLocale });
   };
 
   return (
-    <LocaleContext.Provider value={{ locale: pageProps.locale, changeLocale }}>
+    <LocaleContext.Provider value={{ locale: locale, changeLocale }}>
       <Component {...pageProps} />
     </LocaleContext.Provider>
   );
