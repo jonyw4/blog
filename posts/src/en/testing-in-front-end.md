@@ -30,7 +30,7 @@ Another one is [The Testing Trophy](https://twitter.com/kentcdodds/status/960723
 
 What I going to present here is based on Martin Fowler Pyramid of Testing with some little changes to represent **more general perspective of testing in front end**. Looks like this:
 
-![Pyramid of Testing Front End Adapted](../../images/pyramid-of-testing-front-end.png "Pyramid of Testing Front End Adapted")
+![Pyramid of Testing Front End Adapted](/images/pyramid-of-testing-front-end.png "Pyramid of Testing Front End Adapted")
 
 These boundaries in the pyramid is what I call **levels** in this article. Each level represent a different purpose of testing. These levels can have different **types** of tests. Define tests types can be fuzzy and difficult because sometimes we don't have a good separation in the code.
 
