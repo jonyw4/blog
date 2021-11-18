@@ -1,13 +1,16 @@
 import { GetStaticProps } from "next";
-import { formatDate } from "../components/global/formatDate";
-import { articleRepository } from "../factories";
+import { formatDate, setLocale } from "../components/global/formatDate";
 import { HomePage, HomePageProps } from "../components/templates/HomePage";
+import { createArticleRepository } from "../factories";
 
 function Home(props: HomePageProps) {
   return <HomePage {...props} />;
 }
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+  setLocale(locale);
+  
+  const articleRepository = createArticleRepository(locale);
   const articles = await articleRepository.getAllArticleMetadata();
   return {
     props: {

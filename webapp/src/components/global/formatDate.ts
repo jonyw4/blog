@@ -1,4 +1,8 @@
-const locale = "en-US";
+let locale = "en-US";
+
+export function setLocale(loc: string) {
+  locale = loc;
+}
 
 export function formatDate(date: Date) {
   return date.toLocaleDateString(locale, {

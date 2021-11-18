@@ -8,7 +8,7 @@
   "scripts": {
     "spellcheck": "npm run spellcheck:en",
     "spellcheck:en": "npm run spellcheck:en:fix -- --report",
-    "spellcheck:en:fix": "mdspell 'src/posts/en/**/*.md' --ignore-acronyms --en-us",
+    "spellcheck:en:fix": "mdspell 'src/en/**/*.md' --ignore-acronyms --en-us",
     "lint:markdown": "markdownlint './src/**/*.md'",
     "lint:markdown:fix": "npm run lint -- --fix",
     "lint:spell": "vale --glob='*.{md}' src",

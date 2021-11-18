@@ -2,7 +2,7 @@ import { ArticleRepository } from "../../../src/data";
 import { ArticleFileSystemRepository } from "../../../src/infra/ArticleFileSystemRepository";
 
 describe("infra :: ArticleFileSystemRepository", () => {
-  const articleFileSystemRepository: ArticleRepository = new ArticleFileSystemRepository();
+  const articleFileSystemRepository: ArticleRepository = new ArticleFileSystemRepository("en-US");
   it("should find an article by slug with success", async () => {
     const article = await articleFileSystemRepository.findArticleBySlug('testing-in-front-end')
     expect(article.slug).toBe("testing-in-front-end");

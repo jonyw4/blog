@@ -4,10 +4,6 @@ This repository contains all the posts for the blog.
 
 # Folder structure
 
-`images`
-The images of the posts.
-
-`posts`
 All posts are in this folder and are organized by language tag. 
 
 # Post files
