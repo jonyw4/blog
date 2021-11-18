@@ -4,7 +4,7 @@ import { ArticleRepository } from "../data";
 import { Article, ArticleMetadata } from "../domain";
 import frontMatterParser from "gray-matter";
 
-const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "posts/src");
+const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "../posts/src");
 
 export class ArticleFileSystemRepository implements ArticleRepository {
   constructor(
