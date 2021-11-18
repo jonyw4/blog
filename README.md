@@ -1,14 +1,6 @@
 # Blog
 
-The code of my personal blog. **Is a working in progress.**
-
-## Roadmap
-
-1. [x] Configure the basics to create a article
-2. [x] Create a first good article
-3. [ ] Create the initial architecture
-4. [ ] Create the minimum of the code to make it work
-5. [ ] Deploy it
+The code of my personal blog.
 
 ## Installation
 
