@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ArticlePage } from "../../components/templates/ArticlePage";
 import { Markdown } from "../../components/atoms/Markdown";
-import { formatDate } from "../../components/global/formatDate";
+import { formatDate, setLocale } from "../../components/global/formatDate";
 import { createArticleRepository } from "../../factories";
 
 export interface ArticleProps {
@@ -28,6 +28,8 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({
   params,
   locale
 }) => {
+  setLocale(locale);
+
   const articleRepository = createArticleRepository(locale);
   const slug = params?.slug as string;
   const article = await articleRepository.findArticleBySlug(slug);
@@ -40,11 +42,15 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const articleRepository = createArticleRepository("en");
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const articleRepository = createArticleRepository("en-US");
   const articleSlugs = await articleRepository.getAllArticleSlugs();
+
+  const paths = articleSlugs.map((slug) => ({ params: { slug } }));
+  const pathsByLocale = locales.map((locale) => paths.map((path) => ({...path, locale})));
+
   return {
-    paths: articleSlugs.map((slug) => ({ params: { slug } })),
+    paths: pathsByLocale.flat(),
     fallback: false,
   };
 };
