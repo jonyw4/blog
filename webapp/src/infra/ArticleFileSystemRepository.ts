@@ -4,11 +4,17 @@ import { ArticleRepository } from "../data";
 import { Article, ArticleMetadata } from "../domain";
 import frontMatterParser from "gray-matter";
 
-const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "../posts/src/posts/en");
+const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "posts/src");
 
 export class ArticleFileSystemRepository implements ArticleRepository {
+  constructor(
+    private language: string,
+    private articleFilePath = path.resolve(
+      ARTICLE_FILE_PATH, language
+    )
+  ) {}
   async findArticleBySlug(slug: string): Promise<Article> {
-    const filePath = path.join(ARTICLE_FILE_PATH, `${slug}.md`);
+    const filePath = path.join(this.articleFilePath, `${slug}.md`);
     const file = fs.readFileSync(filePath);
     const {
       data: { title, createdAt, updatedAt, description },
@@ -37,11 +43,11 @@ export class ArticleFileSystemRepository implements ArticleRepository {
       return this.findArticleBySlug(slug).then(
         ({ content, ...articleMetadata }) => articleMetadata
       );
-    })
+    });
 
     return Promise.all(articleMetadataPromises);
   }
   private getArticleFileNames(): string[] {
-    return fs.readdirSync(ARTICLE_FILE_PATH);
+    return fs.readdirSync(this.articleFilePath);
   }
 }
