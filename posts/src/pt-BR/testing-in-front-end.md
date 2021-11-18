@@ -1,5 +1,5 @@
 ---
-title: Testing in Front End
+title: Teste no front end
 description: Aprenda a fazer melhores testes em seu front end.
 createdAt: '2021-11-03T02:11:11.781Z'
 updatedAt: '2021-11-03T02:11:11.781Z'
@@ -22,15 +22,15 @@ Dito isso, vamos lá!
 
 Você provavelmente conhece esta pirâmide específica de teste. Foi originalmente criada no [artigo de Martin Fowler sobre testes em Engenharia de Software](https://martinfowler.com/articles/practical-test-pyramid.html).
 
-! [A pirâmide de teste - Martin Fowler](https://martinfowler.com/articles/practical-test-pyramid/testPyramid.png)
+![A pirâmide de teste - Martin Fowler](https://martinfowler.com/articles/practical-test-pyramid/testPyramid.png)
 
 Outro é [The Testing Trophy](https://twitter.com/kentcdodds/status/960723172591992832?lang=es), de Kent C Dodds, e dá outra perspectiva sobre o mesmo assunto.
 
-! [Troféu de teste - Kent C Dodds](https://pbs.twimg.com/media/DVUoM94VQAAzuws?format=jpg&name=900x900)
+![Troféu de teste - Kent C Dodds](https://pbs.twimg.com/media/DVUoM94VQAAzuws?format=jpg&name=900x900)
 
 O que vou apresentar aqui é baseado na Pirâmide de Teste de Martin Fowler com algumas pequenas mudanças para representar **uma perspectiva mais geral de teste no front end**, e ela se parece com isso:
 
-! [Pirâmide de front-end de teste adaptada](/ images / pyramid-of-testing-front-end.png "Pirâmide de front-end de teste adaptada")
+![Pirâmide de front-end de teste adaptada](/images/pyramid-of-testing-front-end.png "Pirâmide de front-end de teste adaptada")
 
 Esses limites na pirâmide são o que chamo de **níveis** neste artigo. Cada nível representa um propósito diferente de teste. Esses níveis podem ter diferentes **tipos** de testes. Definir os tipos de teste pode ser confuso e difícil porque às vezes não temos uma boa separação no código.
 
