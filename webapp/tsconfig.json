@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ],
     "lib": [
       "dom",
       "dom.iterable",
