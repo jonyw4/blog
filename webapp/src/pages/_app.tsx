@@ -1,7 +1,6 @@
 import "normalize.css";
 import "../components/global/styles/global.css";
-
-import Head from "next/head";
+import Script from "next/script";
 import { UIProvider } from "../components/global";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
@@ -21,26 +20,20 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UIProvider themeData={themeData} locale={{ locale, changeLocale }}>
-      <Head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-3S37WC9HP3"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-3S37WC9HP3');
+        `}
+      </Script>
       <Component {...pageProps} />
     </UIProvider>
   );
