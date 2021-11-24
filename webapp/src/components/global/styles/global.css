@@ -5,9 +5,8 @@
   --color-purple: #AA00FF;
   --color-purple-darker: #311B92;
   --color-white: #e9e9e9;
-}
+  --color-pure-white: #fff;
 
-body[data-theme='light'] {
   --background-color: var(--color-white);
   --text-color: var(--color-black);
   --link-color: var(--color-purple);
@@ -15,7 +14,7 @@ body[data-theme='light'] {
   --selection-color: var(--color-grape);
 }
 
-body[data-theme='dark'] {
+body.dark-mode {
   --background-color: var(--color-black);
   --text-color: var(--color-white);
   --link-color: var(--color-purple);
@@ -39,11 +38,11 @@ body {
   font-weight: 400;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
-  color: var(--text-color);
-  background-color: var(--background-color);
   padding: 0px 1rem;
   max-width: 600px;
   margin: 0 auto !important;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 a {
@@ -127,7 +126,11 @@ article img {
   margin: 3em auto;
   display: block;
   width: auto;
-  max-width: 400px
+  max-width: 400px;
+  background: var(--color-pure-white);
+  padding: 1em;
+  border: 1px solid #dfdede;
+  border-radius: 0.2em;
 }
 
 label, select {
@@ -136,4 +139,8 @@ label, select {
 
 label {
   margin-right: 0.5em;
+}
+
+[type="radio"] {
+  margin-right: 1em;
 }
