@@ -3,7 +3,7 @@ import { useLocale } from "../../global";
 export function LanguageSelect() {
   const { changeLocale, locale } = useLocale();
   return (
-    <div>
+    <div style={{marginBottom: '0.5em'}}>
       <label htmlFor="language-select">🌐 Language</label>
       <select
         id="language-select"
