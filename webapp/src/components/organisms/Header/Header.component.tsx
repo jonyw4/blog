@@ -1,11 +1,11 @@
 import { ProfileCard } from '../ProfileCard'
-import { LanguageSelect } from '../../atoms/LanguageSelect/LanguageSelect.component';
+import { ThemeRadio } from "../../atoms/ThemeRadio/ThemeRadio.component";
 
 export function Header(){
   return (
     <header>
       <ProfileCard />
-      <LanguageSelect />
+      <ThemeRadio />
     </header>
   );
 }

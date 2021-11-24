@@ -1,8 +1,10 @@
 import "normalize.css";
 import "../components/global/styles/global.css";
-import { LocaleContext } from "../components/global";
+import { UIProvider } from "../components/global";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
+import { ThemeLocalStorageRepository } from "../infra/ThemeLocalStorageRepository";
+import { adaptThemeRepositoryToThemeData } from "../components/global/adapters";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -12,9 +14,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     router.push({ pathname, query }, asPath, { locale: nextLocale });
   };
 
+  const themeRepository = new ThemeLocalStorageRepository();
+  const themeData = adaptThemeRepositoryToThemeData(themeRepository)
+
   return (
-    <LocaleContext.Provider value={{ locale: locale, changeLocale }}>
+    <UIProvider themeData={themeData} locale={{ locale, changeLocale }}>
       <Component {...pageProps} />
-    </LocaleContext.Provider>
+    </UIProvider>
   );
 }
