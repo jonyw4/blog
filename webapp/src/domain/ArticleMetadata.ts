@@ -4,4 +4,5 @@ export interface ArticleMetadata {
   description: string;
   createdAt: string;
   updatedAt: string;
+  readEstimateTimeInMinutes: number;
 }

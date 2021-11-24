@@ -10,6 +10,7 @@ export interface ArticleProps {
   title: string;
   createdAt: string;
   updatedAt: string;
+  readEstimateTimeInMinutes: number;
 }
 
 export default function Article({
@@ -17,6 +18,7 @@ export default function Article({
   title,
   createdAt,
   updatedAt,
+  readEstimateTimeInMinutes,
 }: ArticleProps) {
   return (
     <>
@@ -37,6 +39,7 @@ export default function Article({
         title={title}
         createdAt={formatDate(new Date(createdAt))}
         updatedAt={formatDate(new Date(updatedAt))}
+        readEstimateTimeInMinutes={readEstimateTimeInMinutes}
       >
         <Markdown content={content} />
       </ArticlePage>

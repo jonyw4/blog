@@ -3,15 +3,13 @@ import fs from "fs";
 import { ArticleRepository } from "../data";
 import { Article, ArticleMetadata } from "../domain";
 import frontMatterParser from "gray-matter";
-
+import readTimeEstimate from 'read-time-estimate'
 const ARTICLE_FILE_PATH = path.resolve(process.cwd(), "../posts/src");
 
 export class ArticleFileSystemRepository implements ArticleRepository {
   constructor(
     private language: string,
-    private articleFilePath = path.resolve(
-      ARTICLE_FILE_PATH, language
-    )
+    private articleFilePath = path.resolve(ARTICLE_FILE_PATH, language)
   ) {}
   async findArticleBySlug(slug: string): Promise<Article> {
     const filePath = path.join(this.articleFilePath, `${slug}.md`);
@@ -21,6 +19,9 @@ export class ArticleFileSystemRepository implements ArticleRepository {
       content,
     } = frontMatterParser(file);
 
+    const readEstimateTimeInMinutes = this.calculateReadEstimateTimeInMinutesByContent(
+      content
+    );
     return {
       title,
       description,
@@ -28,6 +29,7 @@ export class ArticleFileSystemRepository implements ArticleRepository {
       updatedAt,
       slug,
       content,
+      readEstimateTimeInMinutes,
     };
   }
   async getAllArticleSlugs(): Promise<string[]> {
@@ -46,6 +48,9 @@ export class ArticleFileSystemRepository implements ArticleRepository {
     });
 
     return Promise.all(articleMetadataPromises);
+  }
+  private calculateReadEstimateTimeInMinutesByContent(content: string): number {
+    return Math.round(readTimeEstimate(content).duration);
   }
   private getArticleFileNames(): string[] {
     return fs.readdirSync(this.articleFilePath);
