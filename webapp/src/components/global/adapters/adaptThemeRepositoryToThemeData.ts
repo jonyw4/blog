@@ -1,10 +1,9 @@
-import { AppProps } from "..";
+import { UIProviderProps } from "..";
 import { ThemeRepository } from "../../../data";
-import { ThemeData } from "../theme";
 
 export const adaptThemeRepositoryToThemeData = (
   themeRepository: ThemeRepository
-): AppProps['themeData'] => {
+): UIProviderProps['themeData'] => {
   return {
     initialTheme: themeRepository.getTheme(),
     callback: (theme) => themeRepository.changeTheme(theme),
