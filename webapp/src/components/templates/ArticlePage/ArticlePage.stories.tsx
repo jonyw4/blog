@@ -11,8 +11,9 @@ const storyFactory = new StoryFactory(ArticlePage);
 export const Default = storyFactory.create();
 Default.args = {
   title: "Article title",
-  createdAt: "2020-01-01",
-  updatedAt: "2020-01-01",
+  createdAt: "Wednesday, November 3, 2021",
+  updatedAt: "Wednesday, November 3, 2021",
+  readEstimateTimeInMinutes: 5,
   children: (
     <>
       <h2>Component level</h2>
