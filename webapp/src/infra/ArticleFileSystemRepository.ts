@@ -15,7 +15,7 @@ export class ArticleFileSystemRepository implements ArticleRepository {
     const filePath = path.join(this.articleFilePath, `${slug}.md`);
     const file = fs.readFileSync(filePath);
     const {
-      data: { title, createdAt, updatedAt, description },
+      data: { title, createdAt, updatedAt, description, previewImg },
       content,
     } = frontMatterParser(file);
 
@@ -30,6 +30,7 @@ export class ArticleFileSystemRepository implements ArticleRepository {
       slug,
       content,
       readEstimateTimeInMinutes,
+      previewImg
     };
   }
   async getAllArticleSlugs(): Promise<string[]> {

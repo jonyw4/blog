@@ -5,4 +5,5 @@ export interface ArticleMetadata {
   createdAt: string;
   updatedAt: string;
   readEstimateTimeInMinutes: number;
+  previewImg: string;
 }
