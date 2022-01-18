@@ -8,28 +8,37 @@ import { createArticleRepository } from "../../factories";
 export interface ArticleProps {
   content: string;
   title: string;
+  description: string;
   createdAt: string;
   updatedAt: string;
+  previewImg: string;
   readEstimateTimeInMinutes: number;
 }
 
 export default function Article({
   content,
   title,
+  description,
   createdAt,
   updatedAt,
   readEstimateTimeInMinutes,
+  previewImg,
 }: ArticleProps) {
   return (
     <>
       <Head>
         <title>{title} | Blog - Jonathan Celio</title>
-        <meta name="description" content={title} />
         <meta property="og:title" content={title} key="title" />
+        <meta
+          property="og:description"
+          name="description"
+          content={description}
+        />
         <meta property="og:type" content="article" key="type" />
+        <meta name="author" content="Jonathan Celio" />
         <meta
           property="og:image"
-          content="https://jonycelio.com/images/jony.jpg"
+          content={`https://jonycelio.com${previewImg}`}
           key="image"
         />
         <meta property="og:article:published_time" content={createdAt} />
