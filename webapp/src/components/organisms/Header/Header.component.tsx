@@ -5,7 +5,9 @@ export function Header(){
   return (
     <header>
       <ProfileCard />
-      <ThemeRadio />
+      <div className="hide-mobile">
+        <ThemeRadio />
+      </div>
     </header>
   );
 }

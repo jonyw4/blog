@@ -165,3 +165,10 @@ label {
 .strong {
   font-weight: 600;
 }
+
+
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none;
+  }
+}
